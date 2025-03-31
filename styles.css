@@ -1,0 +1,201 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #6A0DAD;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Sticker de corazón morado */
+.sticker {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-image: url('stiker.png'); /* Sticker de corazón morado */
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #4B0082;
+    text-align: center;
+}
+
+.header .logo img {
+    max-width: 200px;
+    margin-bottom: 20px;
+    animation: fadeInDown 2s ease-out;
+}
+
+.header .description h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-out;
+}
+
+.header .description p {
+    font-size: 1.2em;
+    max-width: 800px;
+    animation: fadeInUp 2s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.members {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #6A0DAD;
+}
+
+.members h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    animation: zoomIn 1.5s ease-out;
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.member-card {
+    display: inline-block;
+    width: 250px;
+    margin: 15px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #4B0082;
+}
+
+.member-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.member-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover img {
+    transform: scale(1.1);
+}
+
+.member-info {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    display: none;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.member-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.member-info p {
+    font-size: 1em;
+    text-align: left;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #4B0082;
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer a {
+    color: #fff;
+    font-size: 2.5em;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #FFD700;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .member-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .member-card {
+        width: 90%;
+    }
+
+    .header .description h1 {
+        font-size: 2em;
+    }
+
+    .header .description p {
+        font-size: 1em;
+    }
+
+    .members h2 {
+        font-size: 2em;
+    }
+}
+
+
+/* CSS para las animaciones */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+[data-aos="fade-up"] {
+    transform: translateY(20px);
+}
+
+[data-aos="fade-down"] {
+    transform: translateY(-20px);
+}
